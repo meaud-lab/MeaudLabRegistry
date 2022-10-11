@@ -4,5 +4,6 @@ repo = "https://github.com/meaud-lab/MeaudLabRegistry.git"
 description = "Registry for the Meaud Lab at Georgia Tech"
 
 [packages]
+0d5c50e4-81de-43f9-ae4e-3b5b494d46d2 = { name = "BistableBeamPlots", path = "B/BistableBeamPlots" }
 81d8da34-ee3d-461f-81cb-52e25cba4bd7 = { name = "BistableBeamSimulations", path = "B/BistableBeamSimulations" }
 b1a9e532-d328-428f-be1b-d03d4ef38f53 = { name = "BistableBeamCore", path = "B/BistableBeamCore" }
