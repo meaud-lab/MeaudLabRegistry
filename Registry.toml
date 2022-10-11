@@ -1,0 +1,6 @@
+name = "MeaudLabRegistry"
+uuid = "5d10c645-4c37-4239-ae2b-b3021c6612b2"
+repo = "https://github.com/meaud-lab/MeaudLabRegistry.git"
+description = "Registry for the Meaud Lab at Georgia Tech"
+
+[packages]
