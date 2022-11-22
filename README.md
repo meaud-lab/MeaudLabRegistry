@@ -31,6 +31,11 @@ JULIA_PKG_USE_CLI_GIT=true
 ```
 to make Pkg use an external git binary.
 
+To reduce the number of headaches associated with this, add the following to your startup.jl file:
+```
+ENV["JULIA_PKG_USE_CLI_GIT"]=true
+```
+
 ## 3. Set Up Persistent git ssh Authentication that Julia Recognizes
 
 By default libssh2 (which is used by the Julia Pkg manager via libgit2)
