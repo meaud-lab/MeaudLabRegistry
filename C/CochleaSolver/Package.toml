@@ -1,0 +1,3 @@
+name = "CochleaSolver"
+uuid = "0d52a867-27f1-426e-a67e-933e6e22616c"
+repo = "https://github.com/meaud-lab/CochleaSolver.jl.git"
