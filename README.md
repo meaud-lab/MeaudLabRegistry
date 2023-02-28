@@ -397,3 +397,36 @@ Use the sha from the `git cat-file` command above.
 # See also
 
 - Creating a registry : https://discourse.julialang.org/t/creating-a-registry/12094
+
+# Working with VS Code on PACE
+
+When working with the Julia extension in VS Code, there are certain niceties that take some configuration when working remotely. The most prominent example is in-pane plotting. For this to work, you must enable X11 forwarding for your ssh connection/tunnel. The easiest way to do this is use a config file, which by default is located at `~/.ssh/config`. One example of an appropriate config file includes
+```
+Host atl*
+  ForwardX11 yes
+  ForwardAgent yes
+  ForwardX11Trusted yes
+  ProxyCommand ssh -X -o ForwardAgent=yes login-phoenix-slurm.pace.gatech.edu nc -w 120ms %h %p
+```
+This allows you to specify a node node to connect to (e.g. atl1-1-01-005-36-1) without specifying the proxy, X11 options, etc.
+
+Using ssh key pairs, you can also eliminate the need to manually type in a password multiple times per connection. First, create a key pair and share the public key with PACE as usual, then modify the local ssh config file to include
+```
+# PACE
+Host atl*
+  ForwardX11 yes
+  ForwardAgent yes
+  ForwardX11Trusted yes
+  User gburdell3
+  IdentityFile C:\\PATH\\TO\\KEY\\id_rsa
+  ProxyCommand ssh -X -o ForwardAgent=yes login-phoenix-slurm.pace.gatech.edu nc -w 120ms %h %p
+
+Host login-phoenix-slurm.pace.gatech.edu
+  HostName login-phoenix-slurm.pace.gatech.edu
+  ForwardX11 yes
+  ForwardAgent yes
+  ForwardX11Trusted yes
+  User gburdell3
+  IdentityFile C:\\PATH\\TO\\KEY\\id_rsa
+  ```
+Note that that the double backslash file separator should only be necessary on Windows.
